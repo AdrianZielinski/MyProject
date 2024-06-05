@@ -18,7 +18,7 @@ import java.util.List;
 public class CarController {
 
     @Autowired
-    public CarRepository carRepository;
+    private CarRepository carRepository;
 
     private final CarDao carDao;
 
