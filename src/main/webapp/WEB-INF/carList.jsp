@@ -129,10 +129,9 @@
                                 <th>Przebieg</th>
                                 <th>Ostatni przegląd</th>
                             </tr>
-                            <jsp:useBean id="cars" scope="request" type="java.util.List"/>
-                            <c:forEach items="${cars}" var="car">
+                            <c:forEach items="${cars}" var="cars">
                                 <tr>
-                                    <td>${car.id}</td>
+                                    <td>${cars.id}</td>
                                     <td>${car.marka}</td>
                                     <td>${car.model}</td>
                                     <td>${car.pojemnosc}</td>

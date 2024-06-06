@@ -139,10 +139,13 @@
                         </div>
 
                         <div class="form-group">
-                            <%--@declare id="paliwo"--%><label for="paliwo">Rodzaj paliwa</label>
-                            <c:forEach items="${paliwo}" var="lang">
-                                ${lang}<br>
-                            </c:forEach>
+                            <label for="paliwo">Deser</label>
+                            <form:select id="paliwo" value="paliwo" path="paliwo">
+                                <option value="Benzyna">Benzyna</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="LPG">LPG</option>
+                                <option value="inne">Inne</option>
+                            </form:select>
                         </div>
 
                         <div class="form-group">
@@ -157,7 +160,7 @@
 <%--                                   placeholder="podaj datę ostatnio wykonanego przeglądu">--%>
 <%--                        </div>--%>
 
-                        <button type="submit" class="btn btn-primary">Zapisz</button>
+                        <button type="submit" class="btn btn-primary" href="<c:url value="/WEB-INF/carList.jsp"/>">Zapisz</button>
                     </form:form>
 
                 </div>

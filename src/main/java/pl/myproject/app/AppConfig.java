@@ -25,7 +25,6 @@ public class AppConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry){
         registry.addResourceHandler("/theme/**").addResourceLocations("theme/");
-
     }
 
     @Bean

@@ -5,6 +5,7 @@ import org.springframework.transaction.annotation.Transactional;
 import pl.myproject.entity.Car;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.util.List;
 
 @Repository
@@ -23,7 +24,9 @@ public class CarDao {
         entityManager.remove(entityManager.contains(car) ? car : entityManager.merge(car));
     }
 
-    public List<Car> find() {
-        return entityManager.createQuery("SELECT a FROM Car a", Car.class).getResultList();
+
+    public List<Car> findAll(){
+        Query query = entityManager.createQuery("SELECT b FROM Car b");
+        return query.getResultList();
     }
 }
