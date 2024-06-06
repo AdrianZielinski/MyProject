@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import pl.myproject.dao.MechanicDao;
-import pl.myproject.entity.Car;
 import pl.myproject.entity.Mechanic;
 
 @Controller
