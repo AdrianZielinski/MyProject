@@ -29,7 +29,12 @@ public class Car {
     @Override
     public String toString() {
         return "Car [id=" + id +
-                ",marka=" + marka + "]";
+                ",marka=" + marka +
+                ",model=" + model +
+                ",pojemnosc=" + pojemnosc +
+                ",paliwo=" + paliwo +
+                ",przebieg=" + przebieg +
+                ",ostatni_przeglad=" + ostatni_przeglad + "]";
     }
 
 }

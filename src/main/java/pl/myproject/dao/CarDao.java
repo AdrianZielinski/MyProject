@@ -11,8 +11,10 @@ import java.util.List;
 @Repository
 @Transactional
 public class CarDao {
+
     @PersistenceContext
     private EntityManager entityManager;
+
 
     public void save(Car car) {
         entityManager.persist(car);
@@ -24,8 +26,7 @@ public class CarDao {
         entityManager.remove(entityManager.contains(car) ? car : entityManager.merge(car));
     }
 
-
-    public List<Car> findAll(){
+    public List<Car> find() {
         Query query = entityManager.createQuery("SELECT b FROM Car b");
         return query.getResultList();
     }

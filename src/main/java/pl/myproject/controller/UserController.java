@@ -27,6 +27,6 @@ public class UserController {
     @RequestMapping(value = "/user", method = RequestMethod.POST)
     public String userForm(@ModelAttribute User user) {
         userDao.save(user);
-        return "redirect:/";
+        return "userAdd";
     }
 }

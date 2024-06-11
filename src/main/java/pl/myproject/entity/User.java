@@ -3,6 +3,7 @@ package pl.myproject.entity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import pl.myproject.dao.UserDao;
 
 import javax.persistence.*;
 
@@ -25,5 +26,6 @@ public class User {
     public User() {
 
     }
+
 
 }

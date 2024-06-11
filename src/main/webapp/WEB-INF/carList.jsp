@@ -2,8 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form"
            uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="td" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html lang="en">
+<html>
 <head>
 
     <meta charset="utf-8">
@@ -12,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>CarManager</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -79,7 +80,7 @@
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">CarManager <sup>1</sup></div>
+            <div class="sidebar-brand-text mx-3">CarManager<sup>1</sup></div>
         </a>
 
         <!-- Divider -->
@@ -109,13 +110,14 @@
 
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"></nav>
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">UsersCRUD</h1>
-                <a href="<c:url value="/WEB-INF/carAdd.jsp"/>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                    <i class="fas fa-download fa-sm text-white-50"></i> Dodaj użytkownika</a>
+                <h1 class="h3 mb-0 text-gray-800">CarManager</h1>
+                <a href="<c:url value="/WEB-INF/carAdd.jsp"/>"
+                   class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                    <i class="fas fa-download fa-sm text-white-50"></i> Dodaj auto</a>
             </div>
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Lista użytkowników</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Lista aut</h6>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -129,9 +131,9 @@
                                 <th>Przebieg</th>
                                 <th>Ostatni przegląd</th>
                             </tr>
-                            <c:forEach items="${cars}" var="cars">
+                            <c:forEach items="${cars}" var="car">
                                 <tr>
-                                    <td>${cars.id}</td>
+                                    <td>${car.id}</td>
                                     <td>${car.marka}</td>
                                     <td>${car.model}</td>
                                     <td>${car.pojemnosc}</td>
