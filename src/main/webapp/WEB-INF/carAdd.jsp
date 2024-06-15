@@ -75,7 +75,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<c:url value="/WEB-INF/loginView.jsp"/>">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<c:url value="/WEB-INF/"/>">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
@@ -87,9 +87,21 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="<c:url value="/car/menu"/>">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span></a>
+                <span>Menu główne</span></a>
+            <a class="nav-link" href="<c:url value="/car"/>">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dodaj auto</span></a>
+            <a class="nav-link" href="<c:url value="/car/user"/>">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dodaj użytkownika</span></a>
+            <a class="nav-link" href="<c:url value="/car/review"/>">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dodaj przegląd</span></a>
+            <a class="nav-link" href="<c:url value="/car/mechanic"/>">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dodaj mechanika</span></a>
         </li>
 
         <hr class="sidebar-divider d-none d-md-block">
@@ -97,6 +109,7 @@
         <!-- Sidebar Toggler (Sidebar) -->
         <div class="text-center d-none d-md-inline">
             <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            <a href="javascript:history.back();">Wstecz</a>
         </div>
 
     </ul>
@@ -108,9 +121,9 @@
 
 
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"></nav>
-            <div class="d-sm-flex align-items-center justify-content-between mb-4" style="padding-left: 0.5cm">
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">CarManager</h1>
-                <a style="padding-right: 0.5cm" href="<c:url value="/WEB-INF/carList.jsp"/>"
+                <a style="padding-right: 0.5cm" href="<c:url value="/car/list"/>"
                    class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                     <i class="fas fa-download fa-sm text-white-50"></i>Lista aut</a>
             </div>
@@ -139,13 +152,30 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="paliwo">Deser</label>
+                            <label for="power">Moc silnika</label>
+                            <form:input path="power" type="text" class="form-control" id="power"
+                                        placeholder="pmoc silnika"></form:input>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="paliwo">Paliwo</label>
                             <form:select id="paliwo" value="paliwo" path="paliwo">
                                 <option value="Benzyna">Benzyna</option>
                                 <option value="Diesel">Diesel</option>
                                 <option value="LPG">LPG</option>
+                                <option value="Elektryczny">Elektryczny</option>
                                 <option value="inne">Inne</option>
                             </form:select>
+                        </div>
+                        <div class="form-group">
+                            <label for="numerRejestracyjny">Numer rejestracyjny</label>
+                            <form:input path="numerRejestracyjny" type="text" class="form-control" id="numerRejestracyjny"
+                                        placeholder="nr rejestracyjny"></form:input>
+                        </div>
+                        <div class="form-group">
+                            <label for="vin">Numer VIN</label>
+                            <form:input path="vin" type="text" class="form-control" id="vin"
+                                        placeholder="nr vin"></form:input>
                         </div>
 
                         <div class="form-group">
@@ -154,13 +184,7 @@
                                         placeholder="podaj przebieg auta"></form:input>
                         </div>
 
-<%--                        <div class="form-group">--%>
-<%--                            <label for="ostatni_przeglad">Ostatnio wykonany przegląd</label>--%>
-<%--                            <input name="ostatni_przeglad" type="date" class="form-control" id="ostatni_przeglad"--%>
-<%--                                   placeholder="podaj datę ostatnio wykonanego przeglądu">--%>
-<%--                        </div>--%>
-
-                        <button type="submit" class="btn btn-primary" href="<c:url value="/WEB-INF/carList.jsp"/>">Zapisz</button>
+                        <button type="submit" class="btn btn-primary">Zapisz</button>
                     </form:form>
 
                 </div>

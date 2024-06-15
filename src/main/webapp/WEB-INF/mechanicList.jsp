@@ -2,8 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form"
            uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="td" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html lang="en">
+<html>
 <head>
 
     <meta charset="utf-8">
@@ -12,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>CarAdd</title>
+    <title>CarManager</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -113,7 +114,6 @@
         </div>
 
     </ul>
-
     <div id="content-wrapper" class="d-flex flex-column">
 
 
@@ -121,33 +121,36 @@
 
 
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"></nav>
-            <div class="d-sm-flex align-items-center justify-content-between mb-4" style="padding-left: 0.5cm">
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">CarManager</h1>
-                <a style="padding-right: 0.5cm" href="<c:url value="/car/mechanic/list"/>"
-                   class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                    <i class="fas fa-download fa-sm text-white-50"></i>Lista mechaników</a>
+
             </div>
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Dodaj mechanika do bazy</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Lista mechaników</h6>
                 </div>
                 <div class="card-body">
-                    <form:form method="post" modelAttribute="mechanic">
-                        <div class="form-group">
-                            <label for="firstName">Imię</label>
-                            <form:input path="firstName" type="text" class="form-control" id="firstName"
-                                        placeholder="podaj imię"></form:input>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="lastName">Nazwisko</label>
-                            <form:input path="lastName" type="text" class="form-control" id="lastName"
-                                        placeholder="podaj nazwisko"></form:input>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Zapisz</button>
-                    </form:form>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tr>
+                                <th>Id</th>
+                                <th>Imię</th>
+                                <th>Nazwisko</th>
+                            </tr>
+                            <c:forEach items="${mechanics}" var="mechanic">
+                                <tr>
+                                    <td>${mechanic.id}</td>
+                                    <td>${mechanic.firstName}</td>
+                                    <td>${mechanic.lastName}</td>
+                                    <td>
+                                        <a href='<c:url value="/car/mechanic/delete/?id=${mechanic.id}"/>'>Usuń</a>
+                                        <a href='<c:url value="/car/mechanic/edit/?id=${mechanic.id}"/>'>Edit</a>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                        </table>
+                    </div>
                 </div>
-
             </div>
         </div>
     </div>

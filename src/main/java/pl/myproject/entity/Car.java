@@ -18,13 +18,16 @@ public class Car {
     private String marka;
     private String model;
     private double pojemnosc;
+    private int power;
     private String paliwo;
+    private String numerRejestracyjny;
+    private String vin;
     private int przebieg;
-    private String ostatni_przeglad;
 
     public Car() {
 
     }
+
 
     @Override
     public String toString() {
@@ -32,9 +35,11 @@ public class Car {
                 ",marka=" + marka +
                 ",model=" + model +
                 ",pojemnosc=" + pojemnosc +
+                ",pojemnosc=" + power +
                 ",paliwo=" + paliwo +
-                ",przebieg=" + przebieg +
-                ",ostatni_przeglad=" + ostatni_przeglad + "]";
+                ",pojemnosc=" + numerRejestracyjny +
+                ",pojemnosc=" + vin +
+                ",przebieg=" + przebieg + "]";
     }
 
 }

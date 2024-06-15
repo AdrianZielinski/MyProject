@@ -6,6 +6,7 @@ import lombok.Setter;
 import pl.myproject.dao.UserDao;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 
 @Entity
 @Table(name = "users")
@@ -19,6 +20,7 @@ public class User {
     private String firstName;
     private String lastName;
     private String numberOfTelephone;
+    @Email
     private String email;
     private String adres;
     private String city;

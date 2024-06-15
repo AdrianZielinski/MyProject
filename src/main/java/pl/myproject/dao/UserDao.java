@@ -2,11 +2,11 @@ package pl.myproject.dao;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import pl.myproject.entity.Car;
 import pl.myproject.entity.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.util.List;
 @Repository
 @Transactional
@@ -25,6 +25,7 @@ public class UserDao {
     }
 
     public List<User> find() {
-        return entityManager.createQuery("SELECT a FROM User a", User.class).getResultList();
+        Query query = entityManager.createQuery("SELECT b FROM User b");
+        return query.getResultList();
     }
 }

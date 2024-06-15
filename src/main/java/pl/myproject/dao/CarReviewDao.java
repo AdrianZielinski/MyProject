@@ -5,6 +5,7 @@ import org.springframework.transaction.annotation.Transactional;
 import pl.myproject.entity.CarReview;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.util.List;
 
 @Repository
@@ -24,6 +25,7 @@ public class CarReviewDao {
     }
 
     public List<CarReview> find() {
-        return entityManager.createQuery("SELECT a FROM CarReview a", CarReview.class).getResultList();
+        Query query = entityManager.createQuery("SELECT b FROM CarReview b");
+        return query.getResultList();
     }
 }

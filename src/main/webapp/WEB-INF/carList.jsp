@@ -76,7 +76,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<c:url value="/WEB-INF/"/>">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
@@ -88,9 +88,21 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="<c:url value="/car/menu"/>">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span></a>
+                <span>Menu główne</span></a>
+            <a class="nav-link" href="<c:url value="/car"/>">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dodaj auto</span></a>
+            <a class="nav-link" href="<c:url value="/car/user"/>">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dodaj użytkownika</span></a>
+            <a class="nav-link" href="<c:url value="/car/review"/>">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dodaj przegląd</span></a>
+            <a class="nav-link" href="<c:url value="/car/mechanic"/>">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dodaj mechanika</span></a>
         </li>
 
         <hr class="sidebar-divider d-none d-md-block">
@@ -98,10 +110,10 @@
         <!-- Sidebar Toggler (Sidebar) -->
         <div class="text-center d-none d-md-inline">
             <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            <a href="javascript:history.back();">Wstecz</A>
         </div>
 
     </ul>
-
     <div id="content-wrapper" class="d-flex flex-column">
 
 
@@ -111,13 +123,10 @@
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"></nav>
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">CarManager</h1>
-                <a href="<c:url value="/WEB-INF/carAdd.jsp"/>"
-                   class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                    <i class="fas fa-download fa-sm text-white-50"></i> Dodaj auto</a>
             </div>
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Lista aut</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Menu główne</h6>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -127,9 +136,11 @@
                                 <th>Marka</th>
                                 <th>Model</th>
                                 <th>Pojemność</th>
+                                <th>Moc</th>
                                 <th>Paliwo</th>
+                                <th>Tablice</th>
+                                <th>Vin</th>
                                 <th>Przebieg</th>
-                                <th>Ostatni przegląd</th>
                             </tr>
                             <c:forEach items="${cars}" var="car">
                                 <tr>
@@ -137,13 +148,14 @@
                                     <td>${car.marka}</td>
                                     <td>${car.model}</td>
                                     <td>${car.pojemnosc}</td>
+                                    <td>${car.power}</td>
                                     <td>${car.paliwo}</td>
+                                    <td>${car.numerRejestracyjny}</td>
+                                    <td>${car.vin}</td>
                                     <td>${car.przebieg}</td>
-                                    <td>${car.ostatni_przeglad}</td>
                                     <td>
-                                        <a href='<c:url value="/WEB-INF/carDelete.jsp?id=${car.id}"/>'>Usuń</a>
-                                        <a href='<c:url value="/WEB-INF/carEdit.jsp?id=${car.id}"/>'>Edit</a>
-                                        <a href='<c:url value="/WEB-INF/carStatus.jsp?id=${car.id}"/>'>Status</a>
+                                        <a href='<c:url value="/car/delete/?id=${car.id}"/>'>Usuń</a>
+                                        <a href='<c:url value="/car/edit/?id=${car.id}"/>'>Edit</a>
                                     </td>
                                 </tr>
                             </c:forEach>
@@ -151,7 +163,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

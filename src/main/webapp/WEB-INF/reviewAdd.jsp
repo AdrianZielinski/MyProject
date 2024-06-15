@@ -113,41 +113,51 @@
         </div>
 
     </ul>
-
     <div id="content-wrapper" class="d-flex flex-column">
-
-
         <div id="content">
-
-
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"></nav>
             <div class="d-sm-flex align-items-center justify-content-between mb-4" style="padding-left: 0.5cm">
                 <h1 class="h3 mb-0 text-gray-800">CarManager</h1>
-                <a style="padding-right: 0.5cm" href="<c:url value="/car/mechanic/list"/>"
+                <a style="padding-right: 0.5cm" href="<c:url value="/car/review/list"/>"
                    class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                    <i class="fas fa-download fa-sm text-white-50"></i>Lista mechaników</a>
+                    <i class="fas fa-download fa-sm text-white-50"></i>Lista przeglądów</a>
             </div>
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Dodaj mechanika do bazy</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Dodaj przegląd</h6>
                 </div>
                 <div class="card-body">
-                    <form:form method="post" modelAttribute="mechanic">
+                    <form:form method="post" modelAttribute="carReview">
                         <div class="form-group">
-                            <label for="firstName">Imię</label>
-                            <form:input path="firstName" type="text" class="form-control" id="firstName"
-                                        placeholder="podaj imię"></form:input>
+                            <label for="data_przegladu">Data przeglądu</label>
+                            <form:input path="data_przegladu" type="text" class="form-control" id="data_przegladu"
+                                        placeholder="podaj datę"></form:input>
                         </div>
 
                         <div class="form-group">
-                            <label for="lastName">Nazwisko</label>
-                            <form:input path="lastName" type="text" class="form-control" id="lastName"
-                                        placeholder="podaj nazwisko"></form:input>
+                            <label for="uwagi">Wpisz uwagi</label>
+                            <form:input path="uwagi" type="text" class="form-control" id="uwagi"
+                                        placeholder="uwagi"></form:input>
                         </div>
+
+                        <div class="form-group">
+                            <label for="price">Cena</label>
+                            <form:input path="price" type="text" class="form-control" id="price"
+                                        placeholder="podaj cene"></form:input>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Status">Status</label>
+                            <form:select id="status" value="status" path="status">
+                                <option value="Benzyna">W przygotowaniu</option>
+                                <option value="Diesel">Do odbioru</option>
+                                <option value="LPG">Przyjęty na plac</option>
+                            </form:select>
+                        </div>
+
                         <button type="submit" class="btn btn-primary">Zapisz</button>
                     </form:form>
                 </div>
-
             </div>
         </div>
     </div>
